@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">NanoPost</string>
+    <string name="header">Qotyka</string>
+    <string name="initial">Q</string>
+    <string name="subheader">Dec 20, 2023 22:03:02</string>
+    <string name="supportText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
+    <string name="favoriteCount">2</string>
+    <string name="subhead_secondary">Just do it!</string>
+    <string name="images">15</string>
+    <string name="subscribers">1</string>
+    <string name="posts">42</string>
+    <string name="description1">images</string>
+    <string name="description2">subscribers</string>
+    <string name="description3">posts</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="imagesDescription">Images</string>
+    <string name="unsubscribe">Unsubscribe</string>
+    <string name="logout">Logout</string>
+    <string name="feed">Feed</string>
+    <string name="profile">Profile</string>
+    <string name="hello_blank_fragment">Wtf! The fragment is blank?</string>
+</resources>

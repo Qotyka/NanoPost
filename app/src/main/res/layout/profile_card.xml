@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="20dp">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="276dp" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileAvatarImage"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:accessibilityLiveRegion="none"
+        android:adjustViewBounds="false"
+        android:cropToPadding="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/colorPrimary"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"/>
+
+    <TextView
+        android:id="@+id/firstSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TextAppearance.Material3.HeadlineLarge"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintBottom_toBottomOf="@+id/profileAvatarImage"
+        app:layout_constraintEnd_toEndOf="@+id/profileAvatarImage"
+        app:layout_constraintStart_toStartOf="@+id/profileAvatarImage"
+        app:layout_constraintTop_toTopOf="@+id/profileAvatarImage"
+        android:text="@string/initial"/>
+
+    <TextView
+        android:id="@+id/profileNickName"
+        style="@style/TextAppearance.Material3.TitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/profileAvatarImage"
+        app:layout_constraintTop_toTopOf="@id/profileAvatarImage"
+        android:text="@string/header"/>
+
+    <TextView
+        android:id="@+id/additionalText"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/subhead_secondary"
+        app:layout_constraintStart_toEndOf="@id/profileAvatarImage"
+        app:layout_constraintTop_toBottomOf="@id/profileNickName"/>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileAvatarImage"/>
+
+    <TextView
+        style="@style/TextAppearance.Material3.HeadlineMedium"
+        android:id="@+id/imagesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider1"
+        android:text="@string/images"/>
+
+    <TextView
+        android:id="@+id/subscribersCount"
+        style="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/subscribers"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline1"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider1" />
+
+    <TextView
+        android:id="@+id/postsCount"
+        style="@style/TextAppearance.Material3.HeadlineMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/posts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider1" />
+
+    <TextView
+        android:id="@+id/description1"
+        style="@style/TextAppearance.Material3.LabelMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description1"
+        app:layout_constraintEnd_toEndOf="@+id/imagesCount"
+        app:layout_constraintStart_toStartOf="@+id/imagesCount"
+        app:layout_constraintTop_toBottomOf="@+id/imagesCount" />
+
+    <TextView
+        android:id="@+id/description2"
+        style="@style/TextAppearance.Material3.LabelMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description2"
+        app:layout_constraintEnd_toEndOf="@+id/subscribersCount"
+        app:layout_constraintStart_toStartOf="@+id/subscribersCount"
+        app:layout_constraintTop_toBottomOf="@+id/subscribersCount" />
+
+    <TextView
+        android:id="@+id/description3"
+        style="@style/TextAppearance.Material3.LabelMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/description3"
+        app:layout_constraintEnd_toEndOf="@+id/postsCount"
+        app:layout_constraintStart_toStartOf="@+id/postsCount"
+        app:layout_constraintTop_toBottomOf="@+id/postsCount" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/subscribeButton"
+        style="@style/Widget.Material3.Button.Subscribe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/subscribe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/unsubscribeButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/unsubscribe"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary_day">#006E1C</color>
+    <color name="on_primary_day">@color/white</color>
+    <color name="primary_variant_day">#006E1C</color>
+    <color name="primary_container_day">#94F990</color>
+    <color name="on_primary_container_day">#002204</color>
+
+    <color name="secondary_day">#636100</color>
+    <color name="on_secondary_day">@color/white</color>
+    <color name="secondary_variant_day">#636100</color>
+    <color name="secondary_container_day">#EBE86E</color>
+    <color name="on_secondary_container_day">#1D1D00</color>
+
+    <color name="tertiary_day">#AB2A64</color>
+    <color name="on_tertiary_day">@color/white</color>
+    <color name="tertiary_variant_day">#AB2A64</color>
+    <color name="tertiary_container_day">#FFD9E3</color>
+    <color name="on_tertiary_container_day">#3E001E</color>
+
+    <color name="background_day">#FCFDF6</color>
+    <color name="on_background_day">#1A1C19</color>
+    <color name="surface_day">#FCFDF6</color>
+    <color name="on_surface_day">#1A1C19</color>
+    <color name="surface_variant_day">#DEE5D8</color>
+    <color name="on_surface_variant_day">#424940</color>
+    <color name="outline_day">#72796F</color>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_night">#78DC77</color>
+    <color name="on_primary_night">#00390A</color>
+    <color name="primary_variant_night">#78DC77</color>
+    <color name="primary_container_night">#005313</color>
+    <color name="on_primary_container_night">#94F990</color>
+
+    <color name="secondary_night">#CECB55</color>
+    <color name="on_secondary_night">#333200</color>
+    <color name="secondary_variant_night">#CECB55</color>
+    <color name="secondary_container_night">#4A4900</color>
+    <color name="on_secondary_container_night">#EBE86E</color>
+
+    <color name="tertiary_night">#FFB0C9</color>
+    <color name="on_tertiary_night">#640034</color>
+    <color name="tertiary_variant_night">#FFB0C9</color>
+    <color name="tertiary_container_night">#8B0B4C</color>
+    <color name="on_tertiary_container_night">#FFD9E3</color>
+
+    <color name="background_night">#1A1C19</color>
+    <color name="on_background_night">#E2E3DD</color>
+    <color name="surface_night">#1A1C19</color>
+    <color name="on_surface_night">#C6C7C1</color>
+    <color name="surface_variant_night">#424940</color>
+    <color name="on_surface_variant_night">#C2C9BD</color>
+    <color name="outline_night">#8C9388</color>
+</resources>
