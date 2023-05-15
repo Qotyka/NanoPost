@@ -9,4 +9,6 @@ data class Post(
     val text: String?,
     val dateCreated: Long,
     val images: List<ImageData>,
+    val liked: Boolean,
+    val likesCount: Int,
 )

@@ -15,25 +15,30 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 
 class PagingPostAdapter: PagingDataAdapter<Post, PagingPostAdapter.ViewHolder>(PostAdapter.DiffCallBack) {
-    lateinit var onClick: (Post?) -> Unit
+    lateinit var cardOnClick: (Post?) -> Unit
+    lateinit var favorOnClick: (Post?) -> Unit
     class ViewHolder(
         parent: ViewGroup,
-        private val onClickListener: (Post?) -> Unit
+        private val cardOnClickListener: (Post?) -> Unit,
+        private val favorOnClickListener: (Post?) -> Unit,
     ): RecyclerView.ViewHolder(
         parent.inflate(R.layout.post_card)
     ){
         private val binding by viewBinding(PostCardBinding::bind)
         fun bind(post: Post?){
             binding.apply {
-                //does not work
-//                if(post !== null){
-//                    postImage.load(post.images[0].sizes[0].url)
-//                }
+                if(post !== null && post.images.isNotEmpty()){
+                    postImage.load(post.images[0].sizes[0].url)
+                }
                 profileNickName.text = post?.sender
                 additionalText.text = post?.dateCreated.toString()
                 postSupportingText.text = post?.text
+                favorButton.text = post?.likesCount.toString()
                 postCard.setOnClickListener{
-                    onClickListener(post)
+                    cardOnClickListener(post)
+                }
+                favorButton.setOnClickListener{
+                    favorOnClickListener(post)
                 }
             }
         }
@@ -51,7 +56,7 @@ class PagingPostAdapter: PagingDataAdapter<Post, PagingPostAdapter.ViewHolder>(P
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(parent, onClick)
+        return ViewHolder(parent, cardOnClick, favorOnClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

@@ -12,7 +12,9 @@ fun ApiPost.toPost(): Post {
         text = text,
         images = images.map{image ->
             image.toImageData()
-        }
+        },
+        liked = likes.liked,
+        likesCount = likes.likesCount
     )
 }
 

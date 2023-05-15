@@ -7,4 +7,5 @@ data class ApiPost(
     val dateCreated: Long,
     val owner: ProfileCompact,
     val images: List<ApiImage>,
+    val likes: ApiLikes
 )

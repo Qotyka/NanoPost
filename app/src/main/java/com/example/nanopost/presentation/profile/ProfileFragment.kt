@@ -25,7 +25,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter.onClick = {post ->
+        adapter.cardOnClick = {post ->
+            println(post.toString())
+        }
+        adapter.favorOnClick = {post ->
             println(post.toString())
         }
         binding.recycler.adapter = adapter
