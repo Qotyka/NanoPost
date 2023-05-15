@@ -1,10 +1,9 @@
 package com.example.nanopost.data.retrofit.model
 
 @kotlinx.serialization.Serializable
-data class ApiPost(
+data class ApiImage(
     val id: String,
-    val text: String? = null,
-    val dateCreated: Long,
     val owner: ProfileCompact,
-    val images: List<ApiImage>,
+    val dateCreated: Long,
+    val sizes: List<ImageSize>,
 )

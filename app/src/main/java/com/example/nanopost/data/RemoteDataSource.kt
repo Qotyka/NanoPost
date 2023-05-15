@@ -1,11 +1,17 @@
 package com.example.nanopost.data
 
+import android.content.Context
 import android.content.SharedPreferences
+import android.graphics.drawable.Drawable
 import androidx.core.content.edit
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
+import coil.imageLoader
+import coil.request.ImageRequest
+import com.example.nanopost.NanoPostApp
+import com.example.nanopost.R
 import com.example.nanopost.data.paging.PostPagingSource
 import com.example.nanopost.data.retrofit.NanoPostApiService
 import com.example.nanopost.data.retrofit.model.*
@@ -72,12 +78,30 @@ class RemoteDataSource @Inject constructor(
         }
     }
 
-    fun getProfilePosts(): Flow<PagingData<Post>> {
+    fun getProfilePosts(profileId: String): Flow<PagingData<Post>> {
         return Pager(
-            config = PagingConfig(pageSize = 30, enablePlaceholders = false),
-            pagingSourceFactory = { PostPagingSource(apiService) }
+            config = PagingConfig(pageSize = 5, enablePlaceholders = false),
+            pagingSourceFactory = { PostPagingSource(apiService, profileId) }
         ).flow.map{ pagingData->
             pagingData.map { it.toPost() }
         }
     }
+
+    fun getImageByUrl(imageUrl: String, width: Int, height: Int, context: Context): Flow<Drawable?>{
+        return flow{
+            val imageRequest = ImageRequest.Builder(context)
+                .size(width, height)
+                .data(imageUrl)
+                .placeholder(R.drawable.image)
+                .build()
+            emit(context.imageLoader.execute(imageRequest).drawable)
+        }
+    }
+
+    fun getImageById(imageId: String): Flow<ImageData>{
+        return flow{
+            emit(apiService.getImage(imageId).toImageData())
+        }
+    }
+
 }

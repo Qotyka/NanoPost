@@ -7,6 +7,7 @@ import com.example.nanopost.data.retrofit.model.ApiPost
 
 class PostPagingSource(
     private val apiService: NanoPostApiService,
+    private val profileId: String
 ) : PagingSource<String, ApiPost>() {
     override fun getRefreshKey(
         state: PagingState<String, ApiPost>
@@ -19,15 +20,16 @@ class PostPagingSource(
     ): LoadResult<String, ApiPost> {
         return try{
         val response = apiService.getProfilePosts(
-            profileId = "evo",
+            profileId = profileId,
             count= params.loadSize,
-            offset = params.key)
+            offset = params.key
+        )
         LoadResult.Page(
             data=response.items,
             nextKey = response.offset,
             prevKey = null)
         } catch (e: Exception){
-            return LoadResult.Error(e)
+            LoadResult.Error(e)
         }
     }
 }

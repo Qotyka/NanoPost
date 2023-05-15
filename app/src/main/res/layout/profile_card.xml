@@ -42,19 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/colorPrimary"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"/>
-
-    <TextView
-        android:id="@+id/firstSymbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TextAppearance.Material3.HeadlineLarge"
-        android:textColor="?attr/colorOnPrimary"
-        app:layout_constraintBottom_toBottomOf="@+id/profileAvatarImage"
-        app:layout_constraintEnd_toEndOf="@+id/profileAvatarImage"
-        app:layout_constraintStart_toStartOf="@+id/profileAvatarImage"
-        app:layout_constraintTop_toTopOf="@+id/profileAvatarImage"
-        android:text="@string/initial"/>
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.ExtraLarge"/>
 
     <TextView
         android:id="@+id/profileNickName"

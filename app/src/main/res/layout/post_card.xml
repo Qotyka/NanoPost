@@ -25,20 +25,8 @@
         android:cropToPadding="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Large"
         app:srcCompat="?attr/colorPrimary" />
-
-    <TextView
-        android:id="@+id/firstSymbol"
-        style="@style/TextAppearance.Material3.TitleSmall"
-        android:textColor="?attr/colorOnPrimary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/initial"
-        app:layout_constraintBottom_toBottomOf="@+id/profileAvatarImage"
-        app:layout_constraintEnd_toEndOf="@+id/profileAvatarImage"
-        app:layout_constraintStart_toStartOf="@+id/profileAvatarImage"
-        app:layout_constraintTop_toTopOf="@+id/profileAvatarImage" />
 
     <TextView
         android:id="@+id/profileNickName"

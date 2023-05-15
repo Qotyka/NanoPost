@@ -1,5 +1,9 @@
 package com.example.nanopost.data
 
+import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
 import com.example.nanopost.data.paging.PostPagingSource
@@ -25,7 +29,15 @@ class RemoteDataRepository @Inject constructor(
         return remoteDataSource.getProfile(userId)
     }
 
-    fun getProfilePosts(): Flow<PagingData<Post>> {
-        return remoteDataSource.getProfilePosts()
+    fun getProfilePosts(profileId: String): Flow<PagingData<Post>> {
+        return remoteDataSource.getProfilePosts(profileId)
+    }
+
+    fun getImageById(imageId: String): Flow<ImageData>{
+        return remoteDataSource.getImageById(imageId)
+    }
+
+    fun getImageByUrl(imageUrl: String, width: Int, height: Int, context: Context): Flow<Drawable?>{
+        return remoteDataSource.getImageByUrl(imageUrl, width, height, context)
     }
 }

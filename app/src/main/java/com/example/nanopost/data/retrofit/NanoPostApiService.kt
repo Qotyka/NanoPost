@@ -14,6 +14,10 @@ interface NanoPostApiService {
         @Query("count") count: Int,
         @Query("offset") offset: String?,
     ): PagedDataResponse<ApiPost>
+    @GET("/api/v1/post/{postId}")
+    suspend fun getProfilePost(
+        @Path("postId") postId: String,
+    ): ApiPost
     @GET("/api/auth/checkUsername")
     suspend fun checkUsername(@Query("username") username: String): ResultResponse
     @GET("/api/auth/login")
@@ -21,4 +25,6 @@ interface NanoPostApiService {
         @Query("username") username: String,
         @Query("password") password: String,
     ): TokenResponse
+    @GET("/api/v1/image/{imageId}")
+    suspend fun getImage(@Path("imageId") imageId: String): ApiImage
 }

@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">NanoPost</string>
-    <string name="header">Qotyka</string>
-    <string name="initial">Q</string>
-    <string name="subheader">Dec 20, 2023 22:03:02</string>
-    <string name="supportText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</string>
-    <string name="favoriteCount">2</string>
-    <string name="subhead_secondary">Just do it!</string>
-    <string name="images">15</string>
-    <string name="subscribers">1</string>
-    <string name="posts">42</string>
+    <string name="header">Name</string>
+    <string name="subheader">Dec 12, 2012 12:12:12</string>
+    <string name="supportText">Default supporting text</string>
+    <string name="favoriteCount">0</string>
+    <string name="subhead_secondary">Default bio.</string>
+    <string name="images">0</string>
+    <string name="subscribers">0</string>
+    <string name="posts">0</string>
     <string name="description1">images</string>
     <string name="description2">subscribers</string>
     <string name="description3">posts</string>

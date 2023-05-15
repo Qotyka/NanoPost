@@ -5,9 +5,8 @@ import java.time.LocalDateTime
 
 data class Post(
     val id: String,
-    val sender: String,
+    val sender: String?,
     val text: String?,
-    @DrawableRes
-    val imageRes: Int?,
-    val likes: Int
+    val dateCreated: Long,
+    val images: List<ImageData>,
 )

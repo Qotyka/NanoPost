@@ -15,4 +15,5 @@ data class ApiProfile(
     val subscribersCount: Int,
     val postsCount: Int,
     val imagesCount: Int,
+    val images: List<ApiImage>
 )

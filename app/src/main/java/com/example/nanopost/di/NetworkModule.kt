@@ -2,12 +2,12 @@ package com.example.nanopost.di
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.chuckerteam.chucker.api.Chucker
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.example.nanopost.data.RemoteDataRepository
 import com.example.nanopost.data.RemoteDataSource
 import com.example.nanopost.data.retrofit.NanoPostApiService
-import com.example.nanopost.domain.AuthUserUseCase
-import com.example.nanopost.domain.GetProfileUseCase
-import com.example.nanopost.domain.RegisterUserUseCase
+import com.example.nanopost.domain.*
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -76,8 +76,11 @@ class NetworkModule {
     @Provides
     fun provideApiClient(
         @AuthInterceptor authInterceptor: Interceptor,
+        @ApplicationContext context: Context,
         ): OkHttpClient{
             return OkHttpClient().newBuilder()
+                .addInterceptor(ChuckerInterceptor.Builder(context)
+                                .build())
                 .addInterceptor(authInterceptor)
                 .build()
     }
@@ -145,6 +148,14 @@ class NetworkModule {
 
     @Singleton
     @Provides
+    fun provideGetProfilePostsUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetProfilePostsUseCase {
+        return GetProfilePostsUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
     fun provideGetRegisterUserUseCase(
         remoteDataRepository: RemoteDataRepository,
     ): RegisterUserUseCase {
@@ -158,4 +169,22 @@ class NetworkModule {
     ): AuthUserUseCase {
         return AuthUserUseCase(remoteDataRepository)
     }
+
+    @Singleton
+    @Provides
+    fun provideGetImageByUrlUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetImageByUrlUseCase {
+        return GetImageByUrlUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetImageByIdUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetImageByIdUseCase {
+        return GetImageByIdUseCase(remoteDataRepository)
+    }
+
+
 }
