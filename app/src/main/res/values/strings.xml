@@ -8,6 +8,8 @@
     <string name="images">0</string>
     <string name="subscribers">0</string>
     <string name="posts">0</string>
+    <string name="likes">0</string>
+    <string name="liked">1</string>
     <string name="description1">images</string>
     <string name="description2">subscribers</string>
     <string name="description3">posts</string>
@@ -18,4 +20,6 @@
     <string name="feed">Feed</string>
     <string name="profile">Profile</string>
     <string name="hello_blank_fragment">Wtf! The fragment is blank?</string>
+    <string name="title_feed">Feed</string>
+    <string name="default_menu_item_1">menu_item_1</string>
 </resources>

@@ -186,5 +186,92 @@ class NetworkModule {
         return GetImageByIdUseCase(remoteDataRepository)
     }
 
+    @Singleton
+    @Provides
+    fun provideCheckUsernameUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): CheckUsernameUseCase {
+        return CheckUsernameUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCheckTokenUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): CheckTokenUseCase {
+        return CheckTokenUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSubscribeToUserUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): SubscribeToUserUseCase {
+        return SubscribeToUserUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUnsubscribeFromUserUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): UnsubscribeFromUserUseCase {
+        return UnsubscribeFromUserUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideRemoveAccountDataUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): RemoveAccountDataUseCase {
+        return RemoveAccountDataUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCheckSavedUsernameUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): CheckSavedUsernameUseCase {
+        return CheckSavedUsernameUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetSavedUsernameUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetSavedUsernameUseCase {
+        return GetSavedUsernameUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetPostUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetPostUseCase {
+        return GetPostUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetFeedUseCaseUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetFeedUseCase {
+        return GetFeedUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetProfileImagesUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetProfileImagesUseCase {
+        return GetProfileImagesUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideGetProfilesUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): GetProfilesUseCase {
+        return GetProfilesUseCase(remoteDataRepository)
+    }
 
 }

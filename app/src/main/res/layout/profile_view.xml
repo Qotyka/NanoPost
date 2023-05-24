@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/profileCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/on_primary_day"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/profileAvatarImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:accessibilityLiveRegion="none"
+        android:adjustViewBounds="true"
+        android:cropToPadding="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Large"
+        app:srcCompat="?attr/colorPrimary" />
+
+    <TextView
+        android:id="@+id/profileNickNameCharacter"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="N"
+        app:layout_constraintBottom_toBottomOf="@+id/profileAvatarImage"
+        app:layout_constraintEnd_toEndOf="@+id/profileAvatarImage"
+        app:layout_constraintStart_toStartOf="@id/profileAvatarImage"
+        app:layout_constraintTop_toTopOf="@id/profileAvatarImage" />
+
+    <TextView
+        android:id="@+id/profileNickName"
+        style="@style/TextAppearance.Material3.TitleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/header"
+        app:layout_constraintStart_toEndOf="@id/profileAvatarImage"
+        app:layout_constraintTop_toTopOf="@id/profileAvatarImage" />
+
+    <TextView
+        android:id="@+id/additionalText"
+        style="@style/TextAppearance.Material3.BodySmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/subheader"
+        app:layout_constraintStart_toEndOf="@id/profileAvatarImage"
+        app:layout_constraintTop_toBottomOf="@id/profileNickName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

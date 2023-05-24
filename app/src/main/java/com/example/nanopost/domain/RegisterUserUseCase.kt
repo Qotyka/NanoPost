@@ -10,7 +10,7 @@ class RegisterUserUseCase @Inject constructor(
     private val repository: RemoteDataRepository,
 ) {
 
-    operator fun invoke(username: String, password: String): Flow<String> {
+    operator fun invoke(username: String, password: String): Flow<String?> {
         return flow{
             emit(repository.registerUser(username, password))
         }

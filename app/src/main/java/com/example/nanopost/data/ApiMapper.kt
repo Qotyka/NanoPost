@@ -7,14 +7,15 @@ import java.time.ZoneId
 fun ApiPost.toPost(): Post {
     return Post(
         id = id,
-        sender = owner.displayName,
+        sender = owner.displayName ?: owner.username,
         dateCreated = dateCreated,
         text = text,
         images = images.map{image ->
             image.toImageData()
         },
         liked = likes.liked,
-        likesCount = likes.likesCount
+        likesCount = likes.likesCount,
+        avatarUrl = owner.avatarUrl
     )
 }
 
@@ -27,10 +28,13 @@ fun ApiProfile.toProfile(): Profile {
         imagesCount = imagesCount,
         postsCount = postsCount,
         avatar = avatarId,
-        displayName = displayName,
+        avatarUrlSmall = avatarSmall,
+        avatarUrlLarge = avatarLarge,
+        displayName = displayName ?: username,
         images = images.map{image ->
             image.toImageData()
-        }
+        },
+        subscribed = subscribed,
     )
 }
 
@@ -40,5 +44,15 @@ fun ApiImage.toImageData(): ImageData {
         sizes = sizes,
         id = id,
         owner = owner,
+    )
+}
+
+fun ProfileCompact.toMiniProfile(): MiniProfile {
+    return MiniProfile(
+        id = id,
+        username = username,
+        displayName = displayName ?: username,
+        avatarUrl = avatarUrl,
+        subscribed = subscribed,
     )
 }
