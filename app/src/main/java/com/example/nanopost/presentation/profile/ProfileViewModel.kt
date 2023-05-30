@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import androidx.paging.filter
 import androidx.paging.map
 import com.example.nanopost.data.retrofit.model.ImageData
 import com.example.nanopost.data.retrofit.model.Post
@@ -22,12 +23,12 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val getProfileUseCase: GetProfileUseCase,
-    private val getImageByIdUseCase: GetImageByIdUseCase,
-    private val getImageByUrlUseCase: GetImageByUrlUseCase,
     private val getProfilePostsUseCase: GetProfilePostsUseCase,
     private val subscribeUseCase: SubscribeToUserUseCase,
     private val unsubscribeUseCase: UnsubscribeFromUserUseCase,
     private val removeAccountDataUseCase: RemoveAccountDataUseCase,
+    private val getSavedUsernameUseCase: GetSavedUsernameUseCase,
+    private val deletePostUseCase: DeletePostUseCase,
 ): androidx.lifecycle.ViewModel() {
 
     private val _profile = MutableLiveData<Profile>()
@@ -68,6 +69,15 @@ class ProfileViewModel @Inject constructor(
 
     fun logout(){
         removeAccountDataUseCase()
+    }
+
+    fun getSavedUsername() =
+        getSavedUsernameUseCase()
+
+    fun deletePost(postId: String){
+        viewModelScope.launch{
+            deletePostUseCase(postId).first()
+        }
     }
 
     override fun onCleared() {

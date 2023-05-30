@@ -28,7 +28,7 @@
         <item name="colorOnSurfaceVariant">@color/secondary_variant_night</item>
         <item name="colorOutline">@color/outline_night</item>
         <item name="android:textColorPrimary">@color/white</item>
-        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:textColorSecondary">@color/black</item>
     </style>
     <style name="TextAppearance.Material3.TitleLarge.ToolbarTitleAppearance">
         <item name="android:layout_centerHorizontal">true</item>

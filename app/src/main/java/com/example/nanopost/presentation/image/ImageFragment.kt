@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -28,6 +31,12 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(top = insets.top)
+            WindowInsetsCompat.CONSUMED
+        }
+
         val imageUrl = requireArguments().getString("IMAGEURL")
         val dateCreated = requireArguments().getString("DATE")
         val username = requireArguments().getString("USERNAME")
@@ -40,7 +49,11 @@ class ImageFragment : Fragment(R.layout.fragment_image) {
             profileLayout.profileAvatarImage.load(avatarUrl)
             profileLayout.additionalText.text = dateCreated
             profileLayout.profileNickName.text = username
-            imageView.load(imageUrl)
+            profileLayout.profileNickNameCharacter.text = username?.get(0).toString()
+            if(imageUrl != null){
+                profileLayout.profileNickNameCharacter.visibility = View.GONE
+                imageView.load(imageUrl)
+            }
         }
     }
 }

@@ -274,4 +274,44 @@ class NetworkModule {
         return GetProfilesUseCase(remoteDataRepository)
     }
 
+    @Singleton
+    @Provides
+    fun provideCreatePostUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): CreatePostUseCase {
+        return CreatePostUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDeleteImageUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): DeleteImageUseCase {
+        return DeleteImageUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDeletePostUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): DeletePostUseCase {
+        return DeletePostUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideEditProfileUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): EditProfileUseCase {
+        return EditProfileUseCase(remoteDataRepository)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUploadImageUseCase(
+        remoteDataRepository: RemoteDataRepository,
+    ): UploadImageUseCase {
+        return UploadImageUseCase(remoteDataRepository)
+    }
+
 }

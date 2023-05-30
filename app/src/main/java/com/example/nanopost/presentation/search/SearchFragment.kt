@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -30,6 +33,12 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.toolbar) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(top = insets.top)
+            WindowInsetsCompat.CONSUMED
+        }
+
         binding.searchContentView.adapter = adapter
 
         adapter.profileOnClick = {  profile ->
@@ -52,6 +61,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 return true
             }
         })
+
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
         vm.profiles.observe(viewLifecycleOwner) { profileList ->
             lifecycleScope.launch {

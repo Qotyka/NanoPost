@@ -33,9 +33,7 @@ class RemoteDataRepository @Inject constructor(
         return remoteDataSource.authUser(username, password)
     }
 
-    fun getProfile(userId: String): Flow<Profile> {
-        return remoteDataSource.getProfile(userId)
-    }
+    fun getProfile(userId: String) = remoteDataSource.getProfile(userId)
 
     fun getPost(postId: String) = remoteDataSource.getPost(postId)
 
@@ -66,5 +64,21 @@ class RemoteDataRepository @Inject constructor(
     fun getSavedUsername() = remoteDataSource.getSavedUsername()
 
     fun getProfiles(query: String) = remoteDataSource.getProfiles(query)
+
+    fun uploadImage(image: String) = remoteDataSource.uploadImage(image)
+
+    fun createPost(post: CreatePostData) = remoteDataSource.createPost(post)
+
+    fun deletePost(postId: String) = remoteDataSource.deletePost(postId)
+
+    fun deleteImage(imageId: String) = remoteDataSource.deleteImage(imageId)
+
+    fun editProfile(
+        profileId: String,
+        profileData: EditProfileData,
+    ) = remoteDataSource.editProfile(
+        profileId,
+        profileData,
+    )
 
 }

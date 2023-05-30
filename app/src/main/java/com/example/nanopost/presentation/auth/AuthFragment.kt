@@ -6,6 +6,7 @@ import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -62,10 +63,6 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
                             confirmEditTextLayout.isErrorEnabled = true
                         }
                     }
-                }
-
-                usernameEditText.setOnFocusChangeListener { view, b ->
-                    toCheckState()
                 }
             }
 

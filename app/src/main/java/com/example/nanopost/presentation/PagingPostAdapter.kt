@@ -18,10 +18,12 @@ import kotlinx.coroutines.Dispatchers
 class PagingPostAdapter: PagingDataAdapter<Post, PagingPostAdapter.ViewHolder>(DiffCallBack) {
 
     lateinit var cardOnClick: (Post?) -> Unit
+    lateinit var cardOnLongClick: (Post?) -> Unit
 
     class ViewHolder(
         parent: ViewGroup,
         private val cardOnClickListener: (Post?) -> Unit,
+        private val cardOnLongClickListener: (Post?) -> Unit,
     ) : RecyclerView.ViewHolder(
         parent.inflate(R.layout.post_card)
     ) {
@@ -41,6 +43,10 @@ class PagingPostAdapter: PagingDataAdapter<Post, PagingPostAdapter.ViewHolder>(D
                 favorButton.text = post?.likesCount.toString()
                 postCard.setOnClickListener {
                     cardOnClickListener(post)
+                }
+                postCard.setOnLongClickListener {
+                    cardOnLongClickListener(post)
+                    true
                 }
                 favorButton.setOnClickListener {
                     if(favorButton.isActivated){
@@ -69,7 +75,7 @@ class PagingPostAdapter: PagingDataAdapter<Post, PagingPostAdapter.ViewHolder>(D
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(parent, cardOnClick)
+            return ViewHolder(parent, cardOnClick, cardOnLongClick)
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {

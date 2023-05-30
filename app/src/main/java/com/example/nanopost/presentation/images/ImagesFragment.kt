@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -33,6 +36,12 @@ class ImagesFragment : Fragment(R.layout.fragment_images) {
         }
         binding.imageRecycler.adapter = adapter
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(top = insets.top)
+            WindowInsetsCompat.CONSUMED
+        }
+
         binding.toolBar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
@@ -40,7 +49,10 @@ class ImagesFragment : Fragment(R.layout.fragment_images) {
         adapter.imageOnClick = {image->
             if(image != null && image.sizes.isNotEmpty()){
                 findNavController().navigate(R.id.action_imagesFragment_to_imageFragment, bundleOf(
-                    "IMAGEURL" to image.sizes[0].url
+                    "IMAGEURL" to image.sizes[0].url,
+                    "USERNAME" to image.owner.displayName,
+                    "DATE" to image.dateCreated,
+                    "AVATARURL" to image.owner.avatarUrl,
                 ))
             }
         }

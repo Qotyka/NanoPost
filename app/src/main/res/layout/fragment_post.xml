@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background_day"
     tools:context=".presentation.post.PostFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,11 +48,11 @@
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/materialDivider1"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/profileAvatarImage" />
@@ -65,11 +65,11 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/supportText"
             android:gravity="left"
+            android:text="@string/supportText"
+            android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/materialDivider1"
-            android:visibility="gone"/>
+            app:layout_constraintTop_toBottomOf="@id/materialDivider1" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/postImageRecycler"
@@ -78,10 +78,9 @@
             android:layout_marginTop="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            app:layout_constraintTop_toBottomOf="@id/postSupportingText"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postSupportingText" />
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
@@ -93,9 +92,9 @@
                 android:id="@+id/toolBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:navigationIcon="@drawable/baseline_arrow_back_24"
                 app:menu="@menu/menu_default"
-                app:title="Profile"
+                app:navigationIcon="@drawable/baseline_arrow_back_24"
+                app:title="Post"
                 app:titleCentered="true"
                 app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge" />
 
@@ -117,6 +116,7 @@
             android:text="@string/favoriteCount"
             android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
             android:textColor="@color/purple_200"
+            android:visibility="visible"
             app:icon="@drawable/baseline_favorite_border_24"
             app:iconPadding="9.5dp"
             app:iconSize="18dp"
@@ -124,7 +124,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/postImageRecycler"
             app:strokeColor="@color/purple_200"
-            android:visibility="visible"
             app:strokeWidth="1dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

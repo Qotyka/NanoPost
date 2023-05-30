@@ -1,6 +1,9 @@
 package com.example.nanopost.data.retrofit
 
 import com.example.nanopost.data.retrofit.model.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okio.ByteString
 import retrofit2.http.*
 
 interface NanoPostApiService {
@@ -56,6 +59,31 @@ interface NanoPostApiService {
 
     @PUT("/api/v1/profile/{profileId}/subscribe")
     suspend fun subscribe(@Path("profileId") profileId: String): ResultResponse
+
+    @PUT("/api/v1/image")
+    suspend fun uploadImage(@Body image: String): ApiImage
+
+    @Multipart
+    @PUT("/api/v1/post")
+    suspend fun createPost(
+        @Part text: MultipartBody.Part?,
+        @Part image1: MultipartBody.Part?,
+        @Part image2: MultipartBody.Part?,
+        @Part image3: MultipartBody.Part?,
+        @Part image4: MultipartBody.Part?,
+    ): ApiPost
+
+    @DELETE("/api/v1/post/{postId}")
+    suspend fun deletePost(@Path("postId") postId: String): ResultResponse
+
+    @DELETE("/api/v1/image/{imageId}")
+    suspend fun deleteImage(@Path("imageId") imageId: String): ResultResponse
+
+    @PATCH("/api/v1/profile/{profileId}")
+    suspend fun editProfile(
+        @Path("profileId") profileId: String,
+        @Body profileData: EditProfileData,
+    ): ResultResponse
 
     @DELETE("/api/v1/profile/{profileId}/subscribe")
     suspend fun unsubscribe(@Path("profileId") profileId: String): ResultResponse

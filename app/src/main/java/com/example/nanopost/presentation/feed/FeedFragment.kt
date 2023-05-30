@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import android.widget.ImageView
 import androidx.core.os.bundleOf
+import androidx.core.view.*
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -30,11 +32,25 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
 
         vm.getFeed()
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { view, windowInsets ->
+            val insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.updatePadding(top = insets.top)
+            WindowInsetsCompat.CONSUMED
+        }
+
         adapter.cardOnClick = { post ->
-            findNavController().navigate(R.id.action_profileFragment2_to_postFragment, bundleOf(
+            findNavController().navigate(R.id.action_feedFragment_to_postFragment, bundleOf(
                 "POSTID" to post?.id
             )
             )
+        }
+
+        adapter.cardOnLongClick = {post ->
+            findNavController().navigate(R.id.action_feedFragment_to_postFragment, bundleOf(
+                "POSTID" to post?.id
+            )
+            )
+
         }
 
         binding.recycler.adapter = adapter
