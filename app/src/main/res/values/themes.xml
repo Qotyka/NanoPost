@@ -19,7 +19,7 @@
         <item name="colorTertiaryContainer">@color/tertiary_container_day</item>
         <item name="colorOnTertiaryContainer">@color/on_tertiary_container_day</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/primary_variant_day</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
         <item name="background">@color/background_day</item>
         <item name="colorOnBackground">@color/on_background_day</item>
@@ -28,8 +28,18 @@
         <item name="colorSurfaceVariant">@color/secondary_variant_day</item>
         <item name="colorOnSurfaceVariant">@color/secondary_variant_day</item>
         <item name="colorOutline">@color/outline_day</item>
-        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/black</item>
+
+        <item name="android:navigationBarColor">
+            @android:color/transparent
+        </item>
+
+<!--        &lt;!&ndash; Optional: set to transparent if your app is drawing behind the status bar. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor">-->
+<!--            @android:color/transparent-->
+<!--        </item>-->
+
     </style>
     <style name="TextAppearance.Material3.TitleLarge.ToolbarTitleAppearance">
         <item name="android:layout_centerHorizontal">true</item>
