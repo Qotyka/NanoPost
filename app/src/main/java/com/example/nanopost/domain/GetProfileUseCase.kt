@@ -10,7 +10,6 @@ class GetProfileUseCase @Inject constructor(
     private val repository: RemoteDataRepository,
 ) {
 
-    operator fun invoke(userId: String): Flow<Profile> {
-        return repository.getProfile(userId)
-    }
+    operator fun invoke(userId: String) = repository.getProfile(userId)
+
 }

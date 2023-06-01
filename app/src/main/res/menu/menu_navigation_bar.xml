@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/feed"
+        android:id="@+id/feedFragment"
         android:icon="@drawable/baseline_view_stream_24"
         android:title="@string/feed"/>
     <item
-        android:id="@+id/navigationProfile"
+        android:id="@+id/profileFragment2"
         android:icon="@drawable/baseline_account_circle_24"
         android:title="@string/profile"/>
 </menu>
